@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Для тебя</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .neon-text {
+        position: absolute;
+        color: #fff;
+        font-family: "Great Vibes", cursive;
+        font-size: 18vw;
+        text-align: center;
+        white-space: nowrap;
+        text-shadow:
+          0 0 10px #ff0000,
+          0 0 20px #ff0000,
+          0 0 40px #ff0000;
+        animation: fadeOutText 3s ease-in-out forwards;
+      }
+
+      @keyframes fadeOutText {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        30% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        70% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.2);
+        }
+      }
+
+      .heart-container {
+        position: absolute;
+        opacity: 0;
+        animation: fadeInHeart 0.8s ease-in 3s forwards;
+      }
+
+      .heart-svg {
+        width: 50vw;
+        height: auto;
+        /* Сделали цвет ярче (более сочный красный) */
+        fill: #800000;
+
+        /* Усиленный неон: добавлен белый отблеск для яркости */
+        filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #ff0000)
+          drop-shadow(0 0 30px #ff0000);
+
+        /* Максимально быстрая пульсация (0.5с) */
+        animation: ultraFastPulse 0.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+      }
+
+      @keyframes fadeInHeart {
+        from {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes ultraFastPulse {
+        0% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #ff0000)
+            drop-shadow(0 0 30px #ff0000);
+        }
+        50% {
+          transform: scale(1.2);
+          /* В пике сердце "вспыхивает" */
+          filter: drop-shadow(0 0 10px #fff) drop-shadow(0 0 30px #ff3333)
+            drop-shadow(0 0 50px #ff0000);
+        }
+        100% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #ff0000)
+            drop-shadow(0 0 30px #ff0000);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .neon-text {
+          font-size: 22vw;
+        }
+        .heart-svg {
+          width: 75vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="neon-text">Люблю тебя</div>
+
+    <div class="heart-container">
+      <svg class="heart-svg" viewBox="0 0 32 29.6">
+        <path
+          d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+            c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"
+        />
+      </svg>
+    </div>
+  </body>
+</html>
